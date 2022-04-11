@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
           width: 400,
           height: 156,
           child: Image.network(
-            "${HomePage.imageUrl}${articles.articles}",
+            "${HomePage.imageUrl}${articles.articles![0].title}",
             fit: BoxFit.cover,
           ),
         ),
