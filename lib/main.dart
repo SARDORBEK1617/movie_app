@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movi_app/view/home_page.dart';
 import 'package:movi_app/view/second_page.dart';
 import 'package:movi_app/view_model/movies_list_vm.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       child:  MaterialApp(
         home: BlocProvider(
-            create: (_) => NewsBloc(NewsRepositoryImpl()), child: SecondPage()
+            create: (_) => NewsBloc(NewsRepositoryImpl()), child: HomePage()
         ),
       ),
     );

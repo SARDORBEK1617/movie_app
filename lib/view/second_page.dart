@@ -106,7 +106,7 @@ class _SecondPageState extends State<SecondPage> {
   Widget buildError(String error) {
     return Center(
       child: Text(
-        error,
+        "error",
         style: TextStyle(fontSize: 24),
       ),
     );
