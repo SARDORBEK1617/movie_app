@@ -4,9 +4,13 @@ part of 'news_bloc.dart';
 abstract class NewsEvent extends Equatable{}
 
 class FetchNewsEvent extends NewsEvent{
+  final double angle;
+
+  FetchNewsEvent(this.angle);
+
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+
+  List<Object?> get props => [angle];
 
 }
 
