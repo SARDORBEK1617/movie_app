@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movi_app/view/home_page.dart';
-import 'package:movi_app/view/second_page.dart';
-import 'package:movi_app/view_model/movies_list_vm.dart';
-import 'package:provider/provider.dart';
 
-import 'bloc/news_bloc.dart';
-import 'data/repository/news_repo.dart';
-
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'bloc/movies_bloc.dart';
+import 'data/repository/movies_repo.dart';
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -22,15 +16,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(value: MoviesListViewModel()),
-      ],
-      child:  MaterialApp(
-        home: BlocProvider(
-            create: (_) => NewsBloc(NewsRepositoryImpl()), child: HomePage()
-        ),
-      ),
+    return MaterialApp(
+      home: BlocProvider(
+          create: (_) => MoviesBloc(MoviesRepositoryImpl()), child: HomePage()),
     );
   }
 }

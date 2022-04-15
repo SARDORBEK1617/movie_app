@@ -43,27 +43,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
-  cloud_firestore:
-    dependency: "direct dev"
-    description:
-      name: cloud_firestore
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.1.11"
-  cloud_firestore_platform_interface:
-    dependency: transitive
-    description:
-      name: cloud_firestore_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.5.2"
-  cloud_firestore_web:
-    dependency: transitive
-    description:
-      name: cloud_firestore_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.6.11"
   collection:
     dependency: transitive
     description:
@@ -71,13 +50,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
-  cross_file:
-    dependency: transitive
-    description:
-      name: cross_file
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.2"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -86,7 +58,7 @@ packages:
     source: hosted
     version: "1.0.4"
   equatable:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: equatable
       url: "https://pub.dartlang.org"
@@ -99,55 +71,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  firebase_core:
-    dependency: transitive
-    description:
-      name: firebase_core
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.14.0"
-  firebase_core_platform_interface:
-    dependency: transitive
-    description:
-      name: firebase_core_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.2.5"
-  firebase_core_web:
-    dependency: transitive
-    description:
-      name: firebase_core_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.6.1"
-  firebase_storage:
-    dependency: "direct dev"
-    description:
-      name: firebase_storage
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "10.2.11"
-  firebase_storage_platform_interface:
-    dependency: transitive
-    description:
-      name: firebase_storage_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.1.2"
-  firebase_storage_web:
-    dependency: transitive
-    description:
-      name: firebase_storage_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.2.11"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
   flutter_bloc:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
@@ -160,25 +90,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  flutter_plugin_android_lifecycle:
-    dependency: transitive
-    description:
-      name: flutter_plugin_android_lifecycle
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.5"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_web_plugins:
-    dependency: transitive
-    description: flutter
-    source: sdk
-    version: "0.0.0"
   http:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -191,48 +109,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
-  image_picker:
-    dependency: "direct dev"
-    description:
-      name: image_picker
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.8.5"
-  image_picker_android:
-    dependency: transitive
-    description:
-      name: image_picker_android
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.8.4+11"
-  image_picker_for_web:
-    dependency: transitive
-    description:
-      name: image_picker_for_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.6"
-  image_picker_ios:
-    dependency: transitive
-    description:
-      name: image_picker_ios
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.8.4+11"
-  image_picker_platform_interface:
-    dependency: transitive
-    description:
-      name: image_picker_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.4.4"
-  js:
-    dependency: transitive
-    description:
-      name: js
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.6.3"
   lints:
     dependency: transitive
     description:
@@ -275,15 +151,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
-  plugin_platform_interface:
-    dependency: transitive
-    description:
-      name: plugin_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.2"
   provider:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: provider
       url: "https://pub.dartlang.org"
@@ -352,4 +221,4 @@ packages:
     version: "2.1.1"
 sdks:
   dart: ">=2.16.1 <3.0.0"
-  flutter: ">=2.5.0"
+  flutter: ">=1.16.0"
