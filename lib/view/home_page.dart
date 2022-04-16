@@ -18,64 +18,62 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   MoviesBloc? moviesBloc;
 
-
-
   @override
   Widget build(BuildContext context) {
     context.read<MoviesBloc>().add(FetchMoviesEvent());
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Movie app"),
-      ),
+        appBar: AppBar(
+          title: Text("Movie app"),
+        ),
         body: BlocConsumer<MoviesBloc, MoviesState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        if (state is MoviesInitialState) {
-          return buildLoading();
-        }
-        if (state is MoviesLoadingState) {
-          return buildLoading();
-        }
+          listener: (context, state) {},
+          builder: (context, state) {
+            if (state is MoviesInitialState) {
+              return buildLoading();
+            }
+            if (state is MoviesLoadingState) {
+              return buildLoading();
+            }
 
-        if (state is MoviesLoadedState) {
-          return buildUI(state.author);
-        }
-        if (state is MoviesErrorState) {
-          return buildError(state.message);
-        }
-        return Container(
-          child: Text("Movie App"),
-        );
-      },
-    ));
+            if (state is MoviesLoadedState) {
+              return buildUI(state.author);
+            }
+            if (state is MoviesErrorState) {
+              return buildError(state.message);
+            }
+            return Container(
+              child: Text("Movie App"),
+            );
+          },
+        ));
   }
 
   Widget buildUI(List<Articles> articles) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          margin: const EdgeInsets.all(12),
-          width: 400,
-          height: 156,
-          child: Image.network(
-            "${HomePage.imageUrl}${articles[0].content}",
-            fit: BoxFit.cover,
+    return Card(elevation: 12,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 120,
+            height: 120,
+            child: Image.network(
+              "${articles[0].urlToImage}",
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const SizedBox(height: 24),
-            Text("${articles[0].title}"),
-            Text(articles.toString()),
-          ],
-        )
-      ],
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text("${articles[0].author}"),
+              SizedBox(height: 10,),
+              Text("${articles[0].publishedAt}"),
+             // Text(articles.toString()),
+            ],
+          )
+        ],
+      ),
     );
   }
 
