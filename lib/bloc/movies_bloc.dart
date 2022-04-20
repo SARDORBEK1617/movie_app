@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
@@ -16,10 +14,10 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   MoviesBloc(this.moviesRepository) : super(MoviesInitialState()) {
     on<FetchMoviesEvent>((event, emit) async {
       try {
-        List<Articles> articles = await moviesRepository.getMovies();
-        emit(MoviesLoadedState(articles));
+        Movie genreIds = (await moviesRepository.getMovies()) ;
+        emit(MoviesLoadedState(genreIds));
       } catch (e) {
-        emit(MoviesErrorState(e.toString()));
+         emit(MoviesErrorState(e.toString()));
       }
     });
   }

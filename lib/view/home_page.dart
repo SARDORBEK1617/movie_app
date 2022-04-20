@@ -9,7 +9,7 @@ import '../model/movie.dart';
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 
-  static const String imageUrl = "https://image.tmdb.org/t/p/w500";
+ // static const String imageUrl = "https://image.tmdb.org/t/p/w500";
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -36,10 +36,10 @@ class _HomePageState extends State<HomePage> {
             }
 
             if (state is MoviesLoadedState) {
-              return buildUI(state.author);
+              return buildUI(state.results);
             }
             if (state is MoviesErrorState) {
-              return buildError(state.message);
+             // return buildError(state.message);
             }
             return Container(
               child: Text("Movie App"),
@@ -48,34 +48,68 @@ class _HomePageState extends State<HomePage> {
         ));
   }
 
-  Widget buildUI(List<Articles> articles) {
-    return Card(elevation: 12,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 120,
-            height: 120,
-            child: Image.network(
-              "${articles[0].urlToImage}",
-              fit: BoxFit.cover,
+  Widget buildUI(Movie results) {
+    return ListView.builder(
+        itemCount: results.results!.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Container(
+                  color: Colors.white,
+                  width: double.infinity,
+                  height: 2,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 150,
+                  decoration: BoxDecoration(
+                      color: Color(0xffF8F8FF),
+                      borderRadius: BorderRadius.circular(25)),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 150,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: Colors.redAccent,
+                            ),
+                            child: Image.network(
+                              "https://image.tmdb.org/t/p/w200" +
+                                  results.results![index].backdropPath!,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              results.results![index].title!,
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                          Expanded(
+                            child: Text(results.results![index].releaseDate!
+                            ),
+                          ),
+
+                        ],
+                      ),
+
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text("${articles[0].author}"),
-              SizedBox(height: 10,),
-              Text("${articles[0].publishedAt}"),
-             // Text(articles.toString()),
-            ],
-          )
-        ],
-      ),
-    );
+          );
+        });
   }
+
 
   Widget buildLoading() {
     return Center(

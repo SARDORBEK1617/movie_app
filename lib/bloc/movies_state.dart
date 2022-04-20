@@ -16,9 +16,9 @@ class MoviesLoadingState extends MoviesState {
 }
 
 class MoviesLoadedState extends MoviesState {
-  List<Articles> author;
+  Movie results;
 
-  MoviesLoadedState(this.author);
+  MoviesLoadedState(this.results);
 
   @override
   // TODO: implement props
@@ -30,5 +30,5 @@ class MoviesErrorState extends MoviesState {
   MoviesErrorState(this.message);
   @override
   // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => throw  MoviesErrorState(message);
 }
